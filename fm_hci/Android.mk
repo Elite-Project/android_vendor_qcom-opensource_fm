@@ -16,8 +16,11 @@ LOCAL_SHARED_LIBRARIES := \
          libhwbinder \
          liblog \
          libutils \
-         android.hidl.base@1.0 \
-         vendor.qti.hardware.fm@1.0 \
+         android.hidl.base@1.0
+
+ifeq ($(VENDOR_HEAD_IS_PRESENT),true)
+LOCAL_SHARED_LIBRARIES += vendor.qti.hardware.fm@1.0
+endif
 
 LOCAL_CFLAGS := -Wno-unused-parameter
 
